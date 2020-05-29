@@ -28,7 +28,7 @@ else
                             <td>@Html.ActionLink(course.Name, "GetCourse", "Courses", new { id = course.Id })</td>
                             <td>@course.Link</td>
                             <td>
-                                <a asp-action="UpdateCourse" asp-route-id="@course.Id">Update</a>
+                                <a class="btn btn-primary" asp-action="UpdateCourse" asp-route-id="@course.Id">Update</a>
                                 <a class="btn btn-danger" asp-action="DeleteCourse" asp-route-id="@course.Id">Delete</a>
                             </td>
                         </tr>

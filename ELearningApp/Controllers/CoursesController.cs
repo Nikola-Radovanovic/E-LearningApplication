@@ -66,7 +66,7 @@ namespace ELearningApp.Controllers
             {
                 StringContent content = new StringContent(JsonConvert.SerializeObject(course), Encoding.UTF8, "application/json");
 
-                using (var response = await httpClient.PostAsync("https://localhost:44367/api/Courses", content))
+                using (var response = await httpClient.PostAsync("https://localhost:44345/api/Courses", content))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
                     returnedCourse = JsonConvert.DeserializeObject<Course>(apiResponse);
@@ -88,7 +88,7 @@ namespace ELearningApp.Controllers
 
             using (var httpClient = new HttpClient())
             {
-                using (var response = await httpClient.GetAsync("https://localhost:44367/api/Courses/" + id))
+                using (var response = await httpClient.GetAsync("https://localhost:44345/api/Courses/" + id))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
                     course = JsonConvert.DeserializeObject<Course>(apiResponse);
@@ -130,7 +130,7 @@ namespace ELearningApp.Controllers
             {
                 var request = new HttpRequestMessage
                 {
-                    RequestUri = new Uri("https://localhost:44367/api/Courses" + id),
+                    RequestUri = new Uri("https://localhost:44345/api/Courses" + id),
                     Method = new HttpMethod("Patch"),
                     Content = new StringContent("[{ \"op\": \"replace\", \"path\": \"name\", \"value\": \"" + course.Name +
                     "\"},{ \"op\": \"replace\", \"path\":\"link\", \"value\": \"" +
@@ -151,7 +151,7 @@ namespace ELearningApp.Controllers
         {
             using (var httpClient = new HttpClient())
             {
-                using (var response = await httpClient.DeleteAsync("https://localhost:44367/api/Courses/" + id))
+                using (var response = await httpClient.DeleteAsync("https://localhost:44345/api/Courses/" + id))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
                 }

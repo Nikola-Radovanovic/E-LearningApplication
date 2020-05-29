@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using ELearningApp.Models;
 
 namespace ELearningApp.Models
 {
@@ -25,5 +26,6 @@ namespace ELearningApp.Models
         [Required(ErrorMessage = "Unesite opis kursa")]
         [MaxLength(300)]
         public string Description { get; set; }
+        public Category Category { get; set; }
     }
 }
