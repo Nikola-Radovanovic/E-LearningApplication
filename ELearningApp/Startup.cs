@@ -12,6 +12,10 @@ using Microsoft.EntityFrameworkCore;
 using ELearningApp.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using ELearningApp.API.Settings;
+using Microsoft.Extensions.Options;
+using ELearningApp.API.Services;
+using ELearningApp.HttpClients;
 
 namespace ELearningApp
 {
@@ -41,6 +45,20 @@ namespace ELearningApp
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            // requires using Microsoft.Extensions.Options
+            services.Configure<E_LearningDatabaseSettings>(
+                Configuration.GetSection(nameof(E_LearningDatabaseSettings)));
+
+            services.AddSingleton<IE_LearningDatabaseSettings>(sp =>
+                sp.GetRequiredService<IOptions<E_LearningDatabaseSettings>>().Value);
+
+            services.AddSingleton<UserService>(); //adding Singleton UserService
+            services.AddSingleton<CourseService>(); //adding Singleton CourseService
+            services.AddSingleton<SchoolService>(); //adding Singleton SchoolService
+            services.AddSingleton<CategoryService>(); //adding Singleton CategoryService
+
+            services.AddHttpClient<CourseHttp>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,9 +78,10 @@ namespace ELearningApp
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
-
+            app.UseStatusCodePages();
             app.UseAuthentication();
 
+            app.UseMvc();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
