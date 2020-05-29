@@ -179,22 +179,25 @@ namespace ELearningApp.Controllers
         public IActionResult DeleteCourse(string id)
         {
             var course = _courseService.Get(id);
+
             if (course == null)
             {
                 return NotFound();
             }
+
             return View(course);
         }
 
         [HttpPost, ActionName("DeleteCourse")]
         public IActionResult DeleteConfirm(string id)
         { 
-
             var getCourseId = _courseService.Get(id);
+
             if (getCourseId == null)
             {
                 return NotFound();
             }
+
             _courseService.Remove(getCourseId.Id);
 
             return RedirectToAction("AllCourses");

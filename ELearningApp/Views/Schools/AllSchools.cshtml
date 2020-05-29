@@ -6,12 +6,13 @@
 
 <h2>Škole</h2>
 <div class="row">
-    <div class="col-lg-12">
+    <div class="col-lg-11">
         <table id="schools" class="table table-bordered">
             <thead>
                 <tr class="bg-primary">
                     <th>Naziv škole</th>
                     <th>Naziv kursa</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -20,6 +21,10 @@
                     <tr>
                         <td>@Html.ActionLink(school.Name, "UpdateSchool", "Schools", new { id = school.Id })</td>
                         <td>Kurs</td>
+                        <td class="col-lg-2">
+                            <a class="btn btn-primary" asp-action="UpdateCourse" asp-route-id="@school.Id">Update</a>
+                            <a class="btn btn-danger" asp-action="DeleteCourse" asp-route-id="@school.Id">Delete</a>
+                        </td>
                     </tr>
                 }
             </tbody>
