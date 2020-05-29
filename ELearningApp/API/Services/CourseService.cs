@@ -43,7 +43,7 @@ namespace ELearningApp.API.Services
         public void Remove(Course courseIn) =>
             _courses.DeleteOne(c => c.Id == courseIn.Id);
 
-        public void Remove(string id) =>
+        public void Remove(string id, Course courseIn) =>
             _courses.DeleteOne(c => c.Id == id);
     }
 }

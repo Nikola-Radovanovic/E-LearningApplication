@@ -14,6 +14,12 @@ namespace ELearningApp.Controllers
 {
     public class CoursesController : Controller
     {
+        private readonly CourseService _courseService;
+        public CoursesController(CourseService courseService)
+        {
+            _courseService = courseService;
+        }
+
         // GET Courses
         [HttpGet]
         public async Task<IActionResult> AllCourses()
@@ -96,6 +102,15 @@ namespace ELearningApp.Controllers
             }
             return View(course);
         }
+ 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult UpdateCourse([FromForm] string id, Course course)
+        {
+            _courseService.Update(id, course);
+
+            return RedirectToAction("AllCourses", "Courses");
+        }
 
         //[HttpPost]
         //[ValidateAntiForgeryToken]
@@ -107,13 +122,13 @@ namespace ELearningApp.Controllers
         //    {
         //        var content = new MultipartFormDataContent
         //        {
-        //            { new StringContent(course.Id), "Id" },
-        //            { new StringContent(course.Name), "Name" },
-        //            { new StringContent(course.Link), "Link" },
-        //            { new StringContent(course.Description), "Description" }
+        //            { new StringContent(course.Id), "id" },
+        //            { new StringContent(course.Name), "name" },
+        //            { new StringContent(course.Link), "link" },
+        //            { new StringContent(course.Description), "description" }
         //        };
 
-        //        using (var response = await httpClient.PutAsync("https://localhost:44367/api/Courses/", content))
+        //        using (var response = await httpClient.PutAsync("", content))
         //        {
         //            string apiResponse = await response.Content.ReadAsStringAsync();
         //            returnedCourse = JsonConvert.DeserializeObject<Course>(apiResponse);
@@ -122,42 +137,54 @@ namespace ELearningApp.Controllers
         //    return RedirectToAction("AllCourses", "Courses", returnedCourse);
         //}
 
-        [HttpPatch]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> UpdateCourse(string id, Course course)
-        {
-            using (var httpClient = new HttpClient())
-            {
-                var request = new HttpRequestMessage
-                {
-                    RequestUri = new Uri("https://localhost:44345/api/Courses" + id),
-                    Method = new HttpMethod("Patch"),
-                    Content = new StringContent("[{ \"op\": \"replace\", \"path\": \"name\", \"value\": \"" + course.Name +
-                    "\"},{ \"op\": \"replace\", \"path\":\"link\", \"value\": \"" +
-                    course.Link + "\"},{ \"op\": \"replace\", \"path\":\"description\", \"value\": \"" +
-                    course.Description + "\"}]", Encoding.UTF8, "application/json")
-                };
+        //[HttpPatch]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> UpdateCourse(string id, Course course)
+        //{
+        //    using (var httpClient = new HttpClient())
+        //    {
+        //        var request = new HttpRequestMessage
+        //        {
+        //            RequestUri = new Uri("" + id),
+        //            Method = new HttpMethod("Patch"),
+        //            Content = new StringContent("[{ \"op\": \"replace\", \"path\": \"name\", \"value\": \"" + course.Name +
+        //            "\"},{ \"op\": \"replace\", \"path\":\"link\", \"value\": \"" +
+        //            course.Link + "\"},{ \"op\": \"replace\", \"path\":\"description\", \"value\": \"" +
+        //            course.Description + "\"}]", Encoding.UTF8, "application/json")
+        //        };
 
-                var response = await httpClient.SendAsync(request);
-            }
-            return RedirectToAction("AllCourses", "Courses");
-        }
+        //        var response = await httpClient.SendAsync(request);
+        //    }
+        //    return RedirectToAction("AllCourses", "Courses");
+        //}
 
 
         //DELETE Course
         //public ViewResult DeleteCourse() => View();
-        [HttpPost]
-        public async Task<IActionResult> DeleteCourse(string id)
-        {
-            using (var httpClient = new HttpClient())
-            {
-                using (var response = await httpClient.DeleteAsync("https://localhost:44345/api/Courses/" + id))
-                {
-                    string apiResponse = await response.Content.ReadAsStringAsync();
-                }
-            }
-            return NoContent();
-            //return RedirectToAction("AllCourses", "Courses", View());
+        //[HttpPost]
+        //public async Task<IActionResult> DeleteCourse(string id)
+        //{
+        //    using (var httpClient = new HttpClient())
+        //    {
+        //        using (var response = await httpClient.DeleteAsync("" + id))
+        //        {
+        //            string apiResponse = await response.Content.ReadAsStringAsync();
+        //        }
+        //    }
+        //    return NoContent();
+        //    //return RedirectToAction("AllCourses", "Courses");
+        //}
+
+        public ViewResult DeleteCourse() => View();
+        [HttpPost("{id:length(24)}")]
+        public IActionResult DeleteCourse(string id, Course course)
+        { 
+
+            var getCourseId = _courseService.Get(id);
+
+            _courseService.Remove(getCourseId.Id, course);
+
+            return View("AllCourses");
         }
     }
 }

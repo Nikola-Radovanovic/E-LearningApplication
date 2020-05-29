@@ -26,6 +26,7 @@ namespace ELearningApp.Models
         [Required(ErrorMessage = "Unesite opis kursa")]
         [MaxLength(300)]
         public string Description { get; set; }
-        public Category Category { get; set; }
+
+        //public Category Category { get; set; }
     }
 }

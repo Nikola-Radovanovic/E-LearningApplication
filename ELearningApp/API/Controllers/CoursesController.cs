@@ -45,48 +45,49 @@ namespace ELearningApp.API.Controllers
             return CreatedAtRoute("GetCourse", new { id = course.Id.ToString() }, course);
         }
 
-        [HttpPut("{id:length(24)}")]
-        public IActionResult Update([FromForm] string id, Course course)
-        {
-            var updateCourse = _courseService.Get(id);
+        //[HttpPut("{id:length(24)}")]
+        //[ValidateAntiForgeryToken]
+        //public IActionResult Update([FromForm] string id, Course course)
+        //{
+        //    var updateCourse = _courseService.Get(id);
 
-            if (updateCourse == null)
-            {
-                return NotFound();
-            }
+        //    if (updateCourse == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            _courseService.Update(id, course);
+        //    _courseService.Update(id, course);
 
-            return NoContent();
-        }
+        //    return NoContent();
+        //}
 
-        [HttpPatch("{id:length(24)}")]
-        public StatusCodeResult Patch(string id, [FromBody]JsonPatchDocument<Course> patch)
-        {
-            Course course = _courseService.Get(id);
+        //[HttpPatch("{id:length(24)}")]
+        //public StatusCodeResult Patch(string id, [FromBody]JsonPatchDocument<Course> patch)
+        //{
+        //    Course course = _courseService.Get(id);
 
-            if (course != null)
-            {
-                patch.ApplyTo(course);
-                return Ok();
-            }
+        //    if (course != null)
+        //    {
+        //        patch.ApplyTo(course);
+        //        return Ok();
+        //    }
 
-            return NotFound();
-        }
+        //    return NotFound();
+        //}
 
-        [HttpDelete("{id:length(24)}")]
-        public IActionResult Delete(string id)
-        {
-            var deleteCourse = _courseService.Get(id);
+        //[HttpDelete("{id:length(24)}")]
+        //public IActionResult Delete(string id)
+        //{
+        //    var deleteCourse = _courseService.Get(id);
 
-            if (deleteCourse == null)
-            {
-                return NotFound();
-            }
+        //    if (deleteCourse == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            _courseService.Remove(id);
+        //    _courseService.Remove(id);
 
-            return NoContent();
-        }
+        //    return NoContent();
+        //}
     }
 }
