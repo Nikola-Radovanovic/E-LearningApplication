@@ -175,16 +175,29 @@ namespace ELearningApp.Controllers
         //    //return RedirectToAction("AllCourses", "Courses");
         //}
 
-        public ViewResult DeleteCourse() => View();
-        [HttpPost("{id:length(24)}")]
-        public IActionResult DeleteCourse(string id, Course course)
+
+        public IActionResult DeleteCourse(string id)
+        {
+            var course = _courseService.Get(id);
+            if (course == null)
+            {
+                return NotFound();
+            }
+            return View(course);
+        }
+
+        [HttpPost, ActionName("DeleteCourse")]
+        public IActionResult DeleteConfirm(string id)
         { 
 
             var getCourseId = _courseService.Get(id);
+            if (getCourseId == null)
+            {
+                return NotFound();
+            }
+            _courseService.Remove(getCourseId.Id);
 
-            _courseService.Remove(getCourseId.Id, course);
-
-            return View("AllCourses");
+            return RedirectToAction("AllCourses");
         }
     }
 }

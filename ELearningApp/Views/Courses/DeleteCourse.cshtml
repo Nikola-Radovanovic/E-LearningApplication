@@ -7,5 +7,7 @@
 @using (Html.BeginForm("DeleteCourse", "Courses"))
 {
     @Html.HiddenFor(c => c.Id)
-    <button type="submit" asp-action="DeleteCourse"  class="btn btn-danger">Delete</button>
+    <form asp-action="DeleteCourse">
+        <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
 }

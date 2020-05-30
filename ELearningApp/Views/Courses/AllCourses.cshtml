@@ -29,7 +29,8 @@ else
                             <td>@course.Link</td>
                             <td>
                                 <a class="btn btn-primary" asp-action="UpdateCourse" asp-route-id="@course.Id">Update</a>
-                                <a class="btn btn-danger" asp-action="DeleteCourse">Delete</a>
+
+                                <a class="btn btn-danger" asp-action="DeleteCourse" asp-route-id="@course.Id">Delete</a>
                             </td>
                         </tr>
                     }
