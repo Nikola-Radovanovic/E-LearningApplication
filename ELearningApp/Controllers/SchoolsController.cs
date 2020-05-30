@@ -7,11 +7,21 @@ using System.Threading.Tasks;
 using ELearningApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using ELearningApp.API.Services;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ELearningApp.Controllers
 {
     public class SchoolsController : Controller
     {
+        private readonly SchoolService _schoolService;
+        public SchoolsController(SchoolService schoolService)
+        {
+            _schoolService = schoolService;
+        }
+
+        //All Schools
+        [AllowAnonymous]
         [HttpGet]
         public async Task<IActionResult> AllSchools()
         {
@@ -29,6 +39,24 @@ namespace ELearningApp.Controllers
             return View(schoolsList);
         }
 
+        //GET School
+        [AllowAnonymous]
+        public ViewResult GetSchool() => View();
+        [HttpGet]
+        public async Task<IActionResult> GetSchool(string id)
+        {
+            School school = new School();
+
+            using (var httpClient = new HttpClient())
+            {
+                using (var response = await httpClient.GetAsync("https://localhost:44345/api/Schools/" + id))
+                {
+                    string apiResponse = await response.Content.ReadAsStringAsync();
+                    school = JsonConvert.DeserializeObject<School>(apiResponse);
+                }
+            }
+            return View(school);
+        }
 
         // CREATE School
         public ViewResult CreateSchool() => View();
@@ -55,8 +83,8 @@ namespace ELearningApp.Controllers
             return RedirectToAction("AllSchools", "Schools", returnedSchool);
         }
 
-
         //UPDATE School
+        //GET
         public async Task<IActionResult> UpdateSchool(string id)
         {
             School school = new School();
@@ -71,29 +99,60 @@ namespace ELearningApp.Controllers
             }
             return View(school);
         }
+        //UPDATE School
+        //POST
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> UpdateSchool(School school)
+        public IActionResult UpdateSchool([FromForm] string id, School school)
         {
-            School returnedSchool = new School();
+            _schoolService.Update(id, school);
 
-            using (var httpClient = new HttpClient())
+            return RedirectToAction("AllSchools", "Schools");
+        }
+
+        //DELETE School
+        //GET
+        public IActionResult DeleteSchool(string id)
+        {
+            try
             {
-                var content = new MultipartFormDataContent
-                {
-                    { new StringContent(school.Id.ToString()), "Id" },
-                    { new StringContent(school.Name), "Name" }
-                };
+                var school = _schoolService.Get(id);
 
-                using (var response = await httpClient.PostAsync("https://localhost:44345/api/Schools/", content))
+                if (school == null)
                 {
-                    string apiResponse = await response.Content.ReadAsStringAsync();
-                    //ViewBag.Result = "Uspesno ste izmenili informacije o školi";
-                    returnedSchool = JsonConvert.DeserializeObject<School>(apiResponse);
-
+                    return NotFound();
                 }
+
+                return View(school);
             }
-            return View("AllSchools", returnedSchool);
+            catch
+            {
+                return View();
+            }
+        }
+
+        //DELETE School
+        //POST
+        [HttpPost, ActionName("DeleteSchool")]
+        public IActionResult DeleteSchoolConfirm(string id)
+        {
+            try
+            {
+                var getSchoolId = _schoolService.Get(id);
+
+                if (getSchoolId == null)
+                {
+                    return NotFound();
+                }
+
+                _schoolService.Remove(getSchoolId.Id);
+
+                return RedirectToAction("AllSchools");
+            }
+            catch
+            {
+                return NoContent();
+            }
         }
     }
 }

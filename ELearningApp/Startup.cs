@@ -16,6 +16,7 @@ using ELearningApp.API.Settings;
 using Microsoft.Extensions.Options;
 using ELearningApp.API.Services;
 using ELearningApp.HttpClients;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace ELearningApp
 {
@@ -80,7 +81,7 @@ namespace ELearningApp
             app.UseCookiePolicy();
             app.UseStatusCodePages();
             app.UseAuthentication();
-
+          
             app.UseMvc();
             app.UseMvc(routes =>
             {

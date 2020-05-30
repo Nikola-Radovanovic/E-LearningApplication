@@ -1,0 +1,27 @@
+﻿@model ELearningApp.Models.School
+@{
+    ViewData["Title"] = "CreateSchool";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>CreateShool</h2>
+
+<div class="row">
+    <div class="col-lg-12">
+        @using (Html.BeginForm("CreateSchool", "Schools"))
+        {
+            <div class="form-group">
+                @Html.LabelFor(s => s.Name)
+                @Html.TextBoxFor(s => s.Name)
+                @Html.ValidationMessageFor(s => s.Name)
+            </div>
+
+            @Html.HiddenFor(s => s.Id)
+            @Html.AntiForgeryToken()
+            <input type="submit" asp-route-returnUrl="@Url.Action("AllSchools", "Schools", new { area = "" })" class="btn btn-primary" formmethod="post" value="Dodaj Skolu" />
+        }
+    </div>
+</div>
+@section Scripts{
+    @await Html.PartialAsync("_ValidationScriptsPartial.cshtml");
+}

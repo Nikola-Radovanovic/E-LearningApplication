@@ -84,3 +84,8 @@ C:\Users\Johny\Desktop\Sol_ELearningApp\ELearningApp\obj\Debug\netcoreapp2.1\Raz
 C:\Users\Johny\Desktop\Sol_ELearningApp\ELearningApp\obj\Debug\netcoreapp2.1\Razor\Views\Schools\AllSchools.g.cshtml.cs
 C:\Users\Johny\Desktop\Sol_ELearningApp\ELearningApp\obj\Debug\netcoreapp2.1\Razor\Views\Courses\DeleteCourse.g.cshtml.cs
 C:\Users\Milica\Desktop\E-LearningApplication\ELearningApp\obj\Debug\netcoreapp2.1\Razor\Views\Courses\DeleteCourse.g.cshtml.cs
+C:\Users\Milica\Desktop\E-LearningApplication\ELearningApp\obj\Debug\netcoreapp2.1\Razor\Views\Courses\GetCourse.g.cshtml.cs
+C:\Users\Milica\Desktop\E-LearningApplication\ELearningApp\obj\Debug\netcoreapp2.1\Razor\Views\Schools\UpdateSchool.g.cshtml.cs
+C:\Users\Milica\Desktop\E-LearningApplication\ELearningApp\obj\Debug\netcoreapp2.1\Razor\Views\Schools\CreateSchool.g.cshtml.cs
+C:\Users\Milica\Desktop\E-LearningApplication\ELearningApp\obj\Debug\netcoreapp2.1\Razor\Views\Schools\DeleteSchool.g.cshtml.cs
+C:\Users\Milica\Desktop\E-LearningApplication\ELearningApp\obj\Debug\netcoreapp2.1\Razor\Views\Schools\GetSchool.g.cshtml.cs

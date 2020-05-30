@@ -19,11 +19,11 @@
                 @foreach (var school in Model)
                 {
                     <tr>
-                        <td>@Html.ActionLink(school.Name, "UpdateSchool", "Schools", new { id = school.Id })</td>
+                        <td>@Html.ActionLink(school.Name, "GetSchool", "Schools", new { id = school.Id })</td>
                         <td>Kurs</td>
                         <td class="col-lg-2">
-                            <a class="btn btn-primary" asp-action="UpdateCourse" asp-route-id="@school.Id">Update</a>
-                            <a class="btn btn-danger" asp-action="DeleteCourse" asp-route-id="@school.Id">Delete</a>
+                            <a class="btn btn-primary" asp-action="UpdateSchool" asp-route-id="@school.Id">Update</a>
+                            <a class="btn btn-danger" asp-action="DeleteSchool" asp-route-id="@school.Id">Delete</a>
                         </td>
                     </tr>
                 }

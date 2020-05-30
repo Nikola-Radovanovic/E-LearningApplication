@@ -1,0 +1,20 @@
+﻿@model ELearningApp.Models.School
+@{
+    ViewData["Title"] = "GetSchool";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-4">
+        @Html.HiddenFor(c => c.Id)
+
+        <h2>@Html.DisplayFor(c => c.Name)</h2>
+
+        <div class="row">
+            <div class="col-lg-12">
+                    Kurs
+            </div>
+        </div>   
+
+    </div>
+</div>
