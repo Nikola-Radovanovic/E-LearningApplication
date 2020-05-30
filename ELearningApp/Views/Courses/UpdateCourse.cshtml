@@ -1,0 +1,37 @@
+﻿@model ELearningApp.Models.Course
+@{
+    ViewData["Title"] = "UpdateCourse";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Izmeni podatke o kursu</h2>
+
+<div class="row">
+    <div class="col-lg-4">
+        @using (Html.BeginForm("UpdateCourse", "Courses"))
+        {
+        <div class="form-group">
+            @Html.LabelFor(c => c.Name)
+            @Html.TextBoxFor(c => c.Name, new { @class = "form-control" })
+            @Html.ValidationMessageFor(c => c.Name)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(c => c.Link)
+            @Html.TextBoxFor(c => c.Link, new { @class = "form-control" })
+            @Html.ValidationMessageFor(c => c.Link)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(c => c.Description)
+            @Html.TextBoxFor(c => c.Description, new { @class = "form-control" })
+            @Html.ValidationMessageFor(c => c.Description)
+        </div>
+            @Html.HiddenFor(c => c.Id)
+            @Html.AntiForgeryToken()
+            <input type="submit" class="btn btn-primary" value="Sačuvaj">
+        }
+    </div>
+</div>
+
+@section Scripts{
+    @await Html.PartialAsync("_ValidationScriptsPartial.cshtml");
+}

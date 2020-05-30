@@ -1,0 +1,37 @@
+﻿@model IEnumerable<ELearningApp.Models.School>
+@{
+    ViewData["Title"] = "AllSchools";
+    Layout = "~/Views/Shared/_DataTablesLayoutPartial.cshtml";
+}
+
+<h2>Škole</h2>
+<div class="row">
+    <div class="col-lg-12">
+        <table id="schools" class="table table-bordered">
+            <thead>
+                <tr class="bg-primary">
+                    <th>Naziv škole</th>
+                    <th>Naziv kursa</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var school in Model)
+                {
+                    <tr>
+                        <td>@Html.ActionLink(school.Name, "UpdateSchool", "Schools", new { id = school.Id })</td>
+                        <td>Kurs</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="col-lg-1">
+        <a asp-action="CreateSchool" class="btn btn-primary">Dodaj školu</a>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#schools').DataTable();
+    });
+</script>

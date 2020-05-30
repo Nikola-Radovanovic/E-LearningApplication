@@ -1,4 +1,4 @@
-﻿using ELearningApp.API.Models;
+﻿using ELearningApp.Models;
 using ELearningApp.API.Settings;
 using MongoDB.Driver;
 using System;
