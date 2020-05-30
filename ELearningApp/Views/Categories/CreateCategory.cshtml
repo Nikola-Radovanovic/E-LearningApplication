@@ -1,0 +1,29 @@
+﻿@model ELearningApp.Models.Category
+@{
+    ViewData["Title"] = "CreateCategory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Dodaj kategoriju</h2>
+<hr />
+
+<div class="row">
+    <div class="col-lg-4">
+        @using (Html.BeginForm("CreateCategory", "Categories"))
+        {
+            <div class="form-group">
+                @Html.LabelFor(c => c.Name)
+                @Html.TextBoxFor(c => c.Name, new { @class = "form-control" })
+                @Html.ValidationMessageFor(c => c.Name)
+            </div>
+
+            @Html.HiddenFor(c => c.Id)
+            @Html.AntiForgeryToken()
+            <input type="submit" asp-route-returnUrl="@Url.Action("AllCourses", "Courses", new { area = "" })" class="btn btn-primary" formmethod="post" value="Dodaj kategoriju" />
+        }
+    </div>
+</div>
+@section Scripts
+{
+    @await Html.PartialAsync("_ValidationScriptsPartial.cshtml");
+}

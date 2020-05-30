@@ -1,4 +1,4 @@
-﻿@model ELearningApp.Models.Course
+﻿@model ELearningApp.ViewModels.CourseCategoryViewModel
 @{
     ViewData["Title"] = "CreateCourse";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -10,28 +10,42 @@
         @using (Html.BeginForm("CreateCourse", "Courses"))
         {
             <div class="form-group">
-                @Html.LabelFor(c => c.Name)
-                @Html.TextBoxFor(c => c.Name, new { @class = "form-control"})
-                @Html.ValidationMessageFor(c => c.Name)
+                @Html.LabelFor(c => c.Course.Name)
+                @Html.TextBoxFor(c => c.Course.Name, new { @class = "form-control" })
+                @Html.ValidationMessageFor(c => c.Course.Name)
             </div>
             <div class="form-group">
-                @Html.LabelFor(c => c.Link)
-                @Html.TextBoxFor(c => c.Link, new { @class = "form-control" })
-                @Html.ValidationMessageFor(c => c.Link)
+                @Html.LabelFor(c => c.Course.Link)
+                @Html.TextBoxFor(c => c.Course.Link, new { @class = "form-control" })
+                @Html.ValidationMessageFor(c => c.Course.Link)
             </div>
             <div class="form-group">
-                @Html.LabelFor(c => c.Description)
-                @Html.TextAreaFor(c => c.Description, new { @class = "form-control" })
-                @Html.ValidationMessageFor(c => c.Description)
+                @*@Html.LabelFor(c => c.Category.Id)
+                @Html.DropDownListFor(c => c.Category.Id,
+                                      new SelectList(Model.Categories, "Id", "Name"),
+                                      "Izaberite kategoriju",
+                                      new { @class = "form-control" })
+                @Html.ValidationMessageFor(c => c.Category.Id)*@
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(c => c.Course.Description)
+                @Html.TextAreaFor(c => c.Course.Description, new { @class = "form-control" })
+                @Html.ValidationMessageFor(c => c.Course.Description)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(c => c.Category.Name)
+                @Html.TextAreaFor(c => c.Category.Name, new { @class = "form-control" })
+                @Html.ValidationMessageFor(c => c.Category.Name)
             </div>
 
-            @Html.HiddenFor(c => c.Id)
+            @Html.HiddenFor(c => c.Course.Id)
             @Html.AntiForgeryToken()
             <input type="submit" asp-route-returnUrl="@Url.Action("AllCourses", "Courses", new { area = "" })" class="btn btn-primary" formmethod="post" value="Dodaj kurs" />
-        } 
+        }
         <hr />
     </div>
 </div>
-@section Scripts{
+@section Scripts
+{
     @await Html.PartialAsync("_ValidationScriptsPartial.cshtml");
 }

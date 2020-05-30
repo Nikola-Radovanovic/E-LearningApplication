@@ -4,36 +4,48 @@
     Layout = "~/Views/Shared/_DataTablesLayoutPartial.cshtml";
 }
 
-<h2>Škole</h2>
-<div class="row">
-    <div class="col-lg-11">
-        <table id="schools" class="table table-bordered">
-            <thead>
-                <tr class="bg-primary">
-                    <th>Naziv škole</th>
-                    <th>Naziv kursa</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var school in Model)
-                {
-                    <tr>
-                        <td>@Html.ActionLink(school.Name, "GetSchool", "Schools", new { id = school.Id })</td>
-                        <td>Kurs</td>
-                        <td class="col-lg-2">
-                            <a class="btn btn-primary" asp-action="UpdateSchool" asp-route-id="@school.Id">Update</a>
-                            <a class="btn btn-danger" asp-action="DeleteSchool" asp-route-id="@school.Id">Delete</a>
-                        </td>
+@if (!Model.Any())
+{
+    <h2>Trenutno nemamo škola u bazi.</h2>
+    <div class="row">
+        <div class="col-lg-1">
+            <a asp-action="CreateSchool" class="btn btn-primary">Dodaj školu</a>
+        </div>
+    </div>
+}
+else
+{
+    <h2>Škole</h2>
+    <div class="row">
+        <div class="col-lg-11">
+            <table id="schools" class="table table-bordered">
+                <thead>
+                    <tr class="bg-primary">
+                        <th>Naziv škole</th>
+                        <th>Naziv kursa</th>
+                        <th></th>
                     </tr>
-                }
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @foreach (var school in Model)
+                    {
+                        <tr>
+                            <td>@Html.ActionLink(school.Name, "GetSchool", "Schools", new { id = school.Id })</td>
+                            <td>Kurs</td>
+                            <td class="col-lg-2">
+                                <a class="btn btn-primary" asp-action="UpdateSchool" asp-route-id="@school.Id">Update</a>
+                                <a class="btn btn-danger" asp-action="DeleteSchool" asp-route-id="@school.Id">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-lg-1">
+            <a asp-action="CreateSchool" class="btn btn-primary">Dodaj školu</a>
+        </div>
     </div>
-    <div class="col-lg-1">
-        <a asp-action="CreateSchool" class="btn btn-primary">Dodaj školu</a>
-    </div>
-</div>
+}
 
 <script>
     $(document).ready(function () {

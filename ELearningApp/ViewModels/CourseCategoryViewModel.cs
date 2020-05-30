@@ -8,7 +8,8 @@ namespace ELearningApp.ViewModels
 {
     public class CourseCategoryViewModel
     {
-        public ICollection<Category> Categories { get; set; }
+        public Category[] Categories { get; set; }
+        public Category Category { get; set; }
         public Course Course { get; set; }
     }
 }
