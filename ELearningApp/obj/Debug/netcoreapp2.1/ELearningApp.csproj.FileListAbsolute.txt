@@ -105,3 +105,4 @@ C:\Users\Johny\Desktop\Sol_ELearningApp\ELearningApp\obj\Debug\netcoreapp2.1\Use
 C:\Users\Johny\Desktop\Sol_ELearningApp\ELearningApp\obj\Debug\netcoreapp2.1\Razor\Views\Administration\ListRoles.g.cshtml.cs
 C:\Users\Milica\Desktop\E-LearningApplication\ELearningApp\obj\Debug\netcoreapp2.1\Razor\Views\Administration\ListRoles.g.cshtml.cs
 C:\Users\Milica\Desktop\E-LearningApplication\ELearningApp\obj\Debug\netcoreapp2.1\Razor\Views\Account\NoAccess.g.cshtml.cs
+C:\Users\Johny\Desktop\Sol_ELearningApp\ELearningApp\obj\Debug\netcoreapp2.1\Razor\Views\Account\NoAccess.g.cshtml.cs

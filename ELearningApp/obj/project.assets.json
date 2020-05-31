@@ -13563,23 +13563,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Milica\\.nuget\\packages\\": {},
+    "C:\\Users\\Johny\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Milica\\Desktop\\E-LearningApplication\\ELearningApp\\ELearningApp.csproj",
+      "projectUniqueName": "C:\\Users\\Johny\\Desktop\\Sol_ELearningApp\\ELearningApp\\ELearningApp.csproj",
       "projectName": "ELearningApp",
-      "projectPath": "C:\\Users\\Milica\\Desktop\\E-LearningApplication\\ELearningApp\\ELearningApp.csproj",
-      "packagesPath": "C:\\Users\\Milica\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Milica\\Desktop\\E-LearningApplication\\ELearningApp\\obj\\",
+      "projectPath": "C:\\Users\\Johny\\Desktop\\Sol_ELearningApp\\ELearningApp\\ELearningApp.csproj",
+      "packagesPath": "C:\\Users\\Johny\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Johny\\Desktop\\Sol_ELearningApp\\ELearningApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Milica\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Johny\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

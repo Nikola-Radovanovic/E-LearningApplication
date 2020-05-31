@@ -16,12 +16,9 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var course in Model.School.Courses)
-                {
-                    <tr>
-                        <td>@Html.DisplayFor(c => c.Course)</td>
-                    </tr>
-                }
+                <tr>
+                    <td>@Html.DisplayFor(c => c.School.Name)</td>
+                </tr>
             </tbody>
         </table>
     </div>

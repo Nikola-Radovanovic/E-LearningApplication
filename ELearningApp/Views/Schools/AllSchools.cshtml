@@ -25,7 +25,10 @@ else
             <thead>
                 <tr class="bg-primary">
                     <th>Naziv škole</th>
-                    <th></th>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <th></th>
+                    }
                 </tr>
             </thead>
             <tbody>

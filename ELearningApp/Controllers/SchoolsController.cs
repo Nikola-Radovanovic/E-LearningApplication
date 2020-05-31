@@ -54,7 +54,7 @@ namespace ELearningApp.Controllers
         [Authorize]
         public ViewResult GetSchool() => View();
         [HttpGet]
-        public IActionResult GetSchool(string id, Course course)
+        public IActionResult GetSchool(string id)
         {
             try
             {  
