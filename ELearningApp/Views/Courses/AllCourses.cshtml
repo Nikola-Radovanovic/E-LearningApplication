@@ -9,7 +9,7 @@
     <h2>Trenutno nemamo kurseva u bazi.</h2>
     <div class="row">
         <div class="col-lg-1">
-            <a asp-action="CreateCourse" class="btn btn-primary">Dodaj kurs</a>
+            <a asp-action="CreateCourse" class="btn btn-success">Create</a>
         </div>
     </div>
 }
@@ -36,9 +36,8 @@ else
                             <td>@course.Link</td>
                             <td>@course.Categories.FirstOrDefault()</td>
                             <td>@course.Level</td>
-                            <td class="col-lg-2">
+                            <td class="col-lg-2 text-center">
                                 <a class="btn btn-primary" asp-action="UpdateCourse" asp-route-id="@course.Id">Update</a>
-
                                 <a class="btn btn-danger" asp-action="DeleteCourse" asp-route-id="@course.Id">Delete</a>
                             </td>
                         </tr>
@@ -47,7 +46,7 @@ else
             </table>
         </div>
         <div class="col-lg-1">
-            <a asp-action="CreateCourse" class="btn btn-primary">Dodaj kurs</a>
+            <a asp-action="CreateCourse" class="btn btn-success">Create</a>
         </div>
     </div>
 }

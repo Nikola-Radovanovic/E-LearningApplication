@@ -8,16 +8,16 @@ using System.Threading.Tasks;
 
 namespace ELearningApp.Models
 {
-    public class School
+    public class Admin
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
 
-        [Required(ErrorMessage = "Unesite naziv škole")]
-        [Display(Name = "Naziv škole")]
-        public string Name { get; set; }
+        [Required(ErrorMessage = "Unesite email")]
+        public string Email { get; set; }
 
-        //public string [] Courses { get; set; }
+        [Required(ErrorMessage = "Unesite lozinku")]
+        public string Password { get; set; }
     }
 }

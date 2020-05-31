@@ -5,7 +5,7 @@
 }
 
 <h2>Izmeni podatke o školi</h2>
-
+<hr />
 <div class="row">
     <div class="col-lg-4">
         @using (Html.BeginForm("UpdateSchool", "Schools"))
@@ -18,7 +18,7 @@
             </div>
                 @Html.HiddenFor(s => s.Id)
                 @Html.AntiForgeryToken()
-            <input type="submit" class="btn btn-primary" value="Sačuvaj" />
+            <input type="submit" class="btn btn-primary" value="Update" />
          }
     </div>
 </div>

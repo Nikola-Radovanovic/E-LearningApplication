@@ -18,7 +18,7 @@ namespace ELearningApp.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Login(User model)
+        public async Task<IActionResult> Login(User model, string ReturnUrl)
         {
             if (ModelState.IsValid)
             {
@@ -29,6 +29,7 @@ namespace ELearningApp.Controllers
                     return View();
                 }
             }
+
             if (LoginUser(model.Email, model.Password))
             {
                 var claims = new List<Claim>
@@ -43,7 +44,16 @@ namespace ELearningApp.Controllers
 
                 return RedirectToAction("Index", "Profile");
             }
-            return View();
+
+            if (!string.IsNullOrEmpty(ReturnUrl)) // Povratak na trazenu stranu posle autentikacije
+            {
+                return Redirect(ReturnUrl);
+            }
+            else
+            {
+                return View();
+            }
+            
         }
 
         private bool LoginUser(string username, string password)

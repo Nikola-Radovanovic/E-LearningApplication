@@ -17,7 +17,7 @@
             </div>
             @Html.HiddenFor(s => s.Id)
             @Html.AntiForgeryToken()
-            <input type="submit" asp-route-returnUrl="@Url.Action("AllSchools", "Schools", new { area = "" })" class="btn btn-primary" formmethod="post" value="Dodaj školu" />
+            <input type="submit" asp-route-returnUrl="@Url.Action("AllSchools", "Schools", new { area = "" })" class="btn btn-success" formmethod="post" value="Create" />
         }
     </div>
 </div>

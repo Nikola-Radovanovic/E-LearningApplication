@@ -13,6 +13,7 @@ namespace ELearningApp.API.Settings
         public string CoursesCollectionName { get; set; }
         public string SchoolsCollectionName { get; set; }
         public string CategoryCollectionName { get; set; }
+        public string AdminCollectionName { get; set; }
     }
 
     public interface IE_LearningDatabaseSettings
@@ -23,5 +24,6 @@ namespace ELearningApp.API.Settings
         string CoursesCollectionName { get; set; }
         string SchoolsCollectionName { get; set; }
         string CategoryCollectionName { get; set; }
+        string AdminCollectionName { get; set; }
     }
 }
