@@ -33,11 +33,15 @@ namespace ELearningApp.Models
 
         [Required(ErrorMessage = "Izaberite nivo kursa")]
         [Display(Name = "Nivo")]
-        public string Level { get; set; }
+        public string[] Level { get; set; }
 
         [Required(ErrorMessage = "Izaberite kategoriju")]
         [Display(Name = "Kategorija")]
         public string[] Categories { get; set; }
+
+        [Required(ErrorMessage = "Izaberite školu")]
+        [Display(Name = "Škola")]
+        public string[] School { get; set; }
     }
 
     public enum Level
@@ -46,5 +50,28 @@ namespace ELearningApp.Models
         Intermediate,
         Advanced,
         Expert
+    }
+
+    public enum Schools
+    {
+        MIT,
+        Hardvard,
+        Berkley,
+        Caltech,
+        Columbia_University,
+        Boston_University
+    }
+
+    public enum Categories
+    {
+        Web_Development,
+        Game_Development,
+        Mobile_Development,
+        Data_Science,
+        Computer_Science,
+        Machine_Learning,
+        Web_Design,
+        Sowtvare_Engineering,
+        Programming_Languages
     }
 }

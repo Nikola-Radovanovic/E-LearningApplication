@@ -89,7 +89,7 @@ using ELearningApp.Models;
             WriteLiteral("            ");
             EndContext();
             BeginContext(442, 131, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "eb197ac8b94449498b5338104ff00b03", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f272079edb984d37954fcb2da93e5c3e", async() => {
                 BeginContext(474, 92, true);
                 WriteLiteral("\r\n                <button type=\"submit\" class=\"btn btn-danger\">Delete</button>\r\n            ");
                 EndContext();

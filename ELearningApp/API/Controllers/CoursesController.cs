@@ -7,6 +7,7 @@ using ELearningApp.API.Services;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
+using ELearningApp.ViewModels;
 
 namespace ELearningApp.API.Controllers
 {
@@ -16,10 +17,14 @@ namespace ELearningApp.API.Controllers
     public class CoursesController : Controller
     {
         private readonly CourseService _courseService;
+        private readonly SchoolService _schoolService;
+        private readonly CategoryService _categoryService;
 
-        public CoursesController(CourseService courseService)
+        public CoursesController(CourseService courseService, SchoolService schoolService, CategoryService categoryService)
         {
             _courseService = courseService;
+            _schoolService = schoolService;
+            _categoryService = categoryService;
         }
 
         [HttpGet]
@@ -40,11 +45,22 @@ namespace ELearningApp.API.Controllers
         }
 
         [HttpPost]
-        public ActionResult<Course> Create(Course course)
+        public ActionResult<Course> Create(string id, Course course)
         {
-            _courseService.Create(course);
+            CourseCategoryViewModel viewModel = new CourseCategoryViewModel
+            {
+                School = _schoolService.Get(id),
+                SchoolArray = _schoolService.Get().ToList(),
+                Course = _courseService.Create(course),
+                CategoryArray = _categoryService.Get().ToList(),
+                Category = _categoryService.Get(id)
+            };
+
+            //_courseService.Create(course);
 
             return CreatedAtRoute("GetCourse", new { id = course.Id.ToString() }, course);
+
+            //return View(viewModel);
         }
 
         //[HttpPut("{id:length(24)}")]
