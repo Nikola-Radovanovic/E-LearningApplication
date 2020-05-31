@@ -19,9 +19,21 @@
 else
 {
     <ul class="nav navbar-nav navbar-right">
-        <li><a asp-area="" asp-controller="Account" asp-action="Register">Register</a></li>
-        <li><a asp-area="" asp-controller="Account" asp-action="Login">Login</a></li>
-        
-        <li><a asp-area="" asp-controller="Profile" asp-action="Index">Profile</a></li>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <li><a asp-area="" asp-controller="Profile" asp-action="Index">Profil</a></li>
+        }
+        @if (!User.Identity.IsAuthenticated)
+        {
+            <li><a asp-area="" asp-controller="Account" asp-action="Register">Registracija</a></li>
+        }
+        @if (!User.Identity.IsAuthenticated)
+        {
+            <li><a asp-area="" asp-controller="Account" asp-action="Login">Prijava</a></li>
+        }
+        @if (User.Identity.IsAuthenticated)
+        {
+            <li><a asp-area="" asp-controller="Account" asp-action="Logout">Odjava</a></li>
+        }
     </ul>
 }

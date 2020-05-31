@@ -1,24 +1,23 @@
 ﻿@model ELearningApp.Models.School
 @{
     ViewData["Title"] = "CreateSchool";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_DataTablesLayoutPartial.cshtml";
 }
 
 <h2>Dodaj školu</h2>
 <hr />
 <div class="row">
-    <div class="col-lg-12">
+    <div class="col-lg-4">
         @using (Html.BeginForm("CreateSchool", "Schools"))
         {
             <div class="form-group">
                 @Html.LabelFor(s => s.Name)
-                @Html.TextBoxFor(s => s.Name)
+                @Html.TextBoxFor(s => s.Name, new { @class = "form-control" })
                 @Html.ValidationMessageFor(s => s.Name)
             </div>
-
             @Html.HiddenFor(s => s.Id)
             @Html.AntiForgeryToken()
-            <input type="submit" asp-route-returnUrl="@Url.Action("AllSchools", "Schools", new { area = "" })" class="btn btn-primary" formmethod="post" value="Dodaj Skolu" />
+            <input type="submit" asp-route-returnUrl="@Url.Action("AllSchools", "Schools", new { area = "" })" class="btn btn-primary" formmethod="post" value="Dodaj školu" />
         }
     </div>
 </div>

@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authentication;
 
 namespace ELearningApp.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class UserController : Controller
     {
         private readonly UserService _userService;
@@ -57,7 +57,7 @@ namespace ELearningApp.Controllers
                 if (ModelState.IsValid)
                 {
                     _userService.Create(user);
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Login", "Account");
                     
                 }
                 

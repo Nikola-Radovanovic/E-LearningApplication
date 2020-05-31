@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace ELearningApp.Controllers
 {
-    
+    [Authorize]
     public class CoursesController : Controller
     {
         private readonly CourseService _courseService;

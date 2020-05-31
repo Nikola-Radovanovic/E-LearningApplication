@@ -1,7 +1,7 @@
 ﻿@model ELearningApp.ViewModels.CourseCategoryViewModel
 @{
     ViewData["Title"] = "CreateCourse";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_DataTablesLayoutPartial.cshtml";
 }
 
 <h2>Dodaj kurs</h2>
@@ -19,23 +19,31 @@
                 @Html.TextBoxFor(c => c.Course.Link, new { @class = "form-control" })
                 @Html.ValidationMessageFor(c => c.Course.Link)
             </div>
-            <div class="form-group">
-                @*@Html.LabelFor(c => c.Category.Id)
-                @Html.DropDownListFor(c => c.Category.Id,
-                                      new SelectList(Model.Categories, "Id", "Name"),
+            @*<div class="form-group">
+                @Html.LabelFor(c => c.Course.Categories)
+                @Html.DropDownListFor(c => c.Course.Categories,
+                                      new SelectList(Model.Course.Categories, "Id", "Name"),
                                       "Izaberite kategoriju",
                                       new { @class = "form-control" })
-                @Html.ValidationMessageFor(c => c.Category.Id)*@
+                @Html.ValidationMessageFor(c => c.Course.Categories)
+            </div>*@
+            <div class="form-group">
+                @Html.LabelFor(c => c.Course.Categories)
+                @Html.TextBoxFor(c => c.Course.Categories, new { @class = "form-control" })
+                @Html.ValidationMessageFor(c => c.Course.Categories)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(c => c.Course.Level)
+                @Html.DropDownListFor(c => c.Course.Level,
+                                      new SelectList(Enum.GetValues(typeof(Level))),
+                                      "--Izaberite nivo kursa--",
+                                      new { @class = "form-control" })
+                @Html.ValidationMessageFor(c => c.Course.Level)
             </div>
             <div class="form-group">
                 @Html.LabelFor(c => c.Course.Description)
                 @Html.TextAreaFor(c => c.Course.Description, new { @class = "form-control" })
                 @Html.ValidationMessageFor(c => c.Course.Description)
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(c => c.Category.Name)
-                @Html.TextAreaFor(c => c.Category.Name, new { @class = "form-control" })
-                @Html.ValidationMessageFor(c => c.Category.Name)
             </div>
 
             @Html.HiddenFor(c => c.Course.Id)

@@ -99,3 +99,6 @@ C:\Users\Milica\Desktop\E-LearningApplication\ELearningApp\obj\Debug\netcoreapp2
 C:\Users\Milica\Desktop\E-LearningApplication\ELearningApp\obj\Debug\netcoreapp2.1\Razor\Views\Account\LogIn.g.cshtml.cs
 C:\Users\Milica\Desktop\E-LearningApplication\ELearningApp\obj\Debug\netcoreapp2.1\Razor\Views\Profile\Index.g.cshtml.cs
 C:\Users\Milica\Desktop\E-LearningApplication\ELearningApp\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
+C:\Users\Johny\Desktop\Sol_ELearningApp\ELearningApp\obj\Debug\netcoreapp2.1\Razor\Views\Account\Login.g.cshtml.cs
+C:\Users\Johny\Desktop\Sol_ELearningApp\ELearningApp\obj\Debug\netcoreapp2.1\Razor\Views\Account\Register.g.cshtml.cs
+C:\Users\Johny\Desktop\Sol_ELearningApp\ELearningApp\obj\Debug\netcoreapp2.1\Razor\Views\Profile\Index.g.cshtml.cs

@@ -1,11 +1,11 @@
 ﻿@model ELearningApp.Models.Course
 @{
     ViewData["Title"] = "GetCourse";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_DataTablesLayoutPartial.cshtml";
 }
 
 <div class="row">
-    <div class="col-lg-4">
+    <div class="col-lg-12 text-center">
         @Html.HiddenFor(c => c.Id)
 
         <h2>@Html.DisplayFor(c => c.Name)</h2>
@@ -18,7 +18,7 @@
         </div>
         <div class="row">
             <div class="col-lg-12">
-                @Html.LabelFor(c => c.Description);
+                @Html.LabelFor(c => c.Description)
                 @Html.DisplayFor(c => c.Description)
             </div>
         </div>

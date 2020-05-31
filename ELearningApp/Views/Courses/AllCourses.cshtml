@@ -14,7 +14,7 @@
     </div>
 }
 else
-{
+{              
     <h2>Kursevi</h2>
     <div class="row">
         <div class="col-lg-11">
@@ -23,6 +23,8 @@ else
                     <tr class="bg-primary">
                         <th>Naziv kursa</th>
                         <th>Link kursa</th>
+                        <th>Kategorija</th>
+                        <th>Nivo kursa</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -32,6 +34,8 @@ else
                         <tr>
                             <td>@Html.ActionLink(course.Name, "GetCourse", "Courses", new { id = course.Id })</td>
                             <td>@course.Link</td>
+                            <td>@course.Categories.FirstOrDefault()</td>
+                            <td>@course.Level</td>
                             <td class="col-lg-2">
                                 <a class="btn btn-primary" asp-action="UpdateCourse" asp-route-id="@course.Id">Update</a>
 

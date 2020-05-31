@@ -25,7 +25,7 @@ namespace ELearningApp.Controllers
                 var isValid = true; // TODO Validate the username and the password with your own logic
                 if (!isValid)
                 {
-                    ModelState.AddModelError("", "username or password is invalid");
+                    ModelState.AddModelError("", "Username or password is invalid");
                     return View();
                 }
             }
@@ -40,6 +40,7 @@ namespace ELearningApp.Controllers
                 var userIdentity = new ClaimsIdentity(claims, "login");
                 ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+
                 return RedirectToAction("Index", "Profile");
             }
             return View();

@@ -15,7 +15,7 @@ namespace ELearningApp.Models
         public string Id { get; set; }
 
         [Display(Name = "Kategorija")]
-        public string Name { get; set; }
+        public string[] Name { get; set; }
 
         //public Course Course { get; set; }
     }

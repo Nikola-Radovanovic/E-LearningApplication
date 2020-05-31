@@ -1,7 +1,7 @@
 ﻿@model ELearningApp.Models.Course
 @{
     ViewData["Title"] = "DeleteCourse";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_DataTablesLayoutPartial.cshtml";
 }
 
 <h3>Da li ste sigurni da želite da izbrišete kurs?</h3>
@@ -12,7 +12,7 @@
         {
             @Html.HiddenFor(c => c.Id)
             <form asp-action="DeleteCourse">
-                <button type="submit" class="btn btn-danger">Delete</button>
+                <button type="submit" class="btn btn-danger">Obriši</button>
             </form>
         }
     </div>

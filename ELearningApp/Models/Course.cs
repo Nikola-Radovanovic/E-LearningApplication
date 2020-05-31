@@ -18,16 +18,33 @@ namespace ELearningApp.Models
 
         [Required(ErrorMessage = "Unesite naziv kursa")]
         [MaxLength(100)]
+        [Display(Name = "Naziv kursa")]
         public string Name { get; set; }
 
         [Required(ErrorMessage = "Unesite link kursa")]
         [MaxLength(300)]
+        [Display(Name = "Link")]
         public string Link { get; set; }
 
         [Required(ErrorMessage = "Unesite opis kursa")]
         [MaxLength(300)]
+        [Display(Name = "Detalji o kursu")]
         public string Description { get; set; }
-        
-        public string Categories { get; set; }
+
+        [Required(ErrorMessage = "Izaberite nivo kursa")]
+        [Display(Name = "Nivo")]
+        public string Level { get; set; }
+
+        [Required(ErrorMessage = "Izaberite kategoriju")]
+        [Display(Name = "Kategorija")]
+        public string[] Categories { get; set; }
+    }
+
+    public enum Level
+    {
+        Beginner,
+        Intermediate,
+        Advanced,
+        Expert
     }
 }

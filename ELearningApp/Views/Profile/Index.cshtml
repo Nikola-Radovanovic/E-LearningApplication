@@ -1,11 +1,11 @@
-﻿
+﻿@model ELearningApp.Models.User
 @{
     ViewData["Title"] = "Index";
-    
-    
-
+    Layout = "~/Views/Shared/_DataTablesLayoutPartial.cshtml";
 }
-<h2>Uspesno ste se ulogovali</h2>
 
-
-<li><a asp-area="" asp-controller="Account" asp-action="Logout">Logout</a></li>
+<div class="row">
+    <div class="col-lg-12">
+        <h2>Zdravo @ViewData["currentUser"]!</h2>
+    </div>
+</div>
