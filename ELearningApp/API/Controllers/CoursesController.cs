@@ -6,9 +6,11 @@ using ELearningApp.Models;
 using ELearningApp.API.Services;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ELearningApp.API.Controllers
 {
+    
     [Route("api/[controller]")]
     [ApiController]
     public class CoursesController : Controller

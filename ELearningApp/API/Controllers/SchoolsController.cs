@@ -5,9 +5,11 @@ using System.Threading.Tasks;
 using ELearningApp.Models;
 using ELearningApp.API.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ELearningApp.API.Controllers
 {
+    
     [Route("api/[controller]")]
     [ApiController]
     public class SchoolsController : ControllerBase

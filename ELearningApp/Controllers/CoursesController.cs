@@ -9,9 +9,11 @@ using ELearningApp.Models;
 using ELearningApp.API.Services;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ELearningApp.Controllers
 {
+    
     public class CoursesController : Controller
     {
         private readonly CourseService _courseService;

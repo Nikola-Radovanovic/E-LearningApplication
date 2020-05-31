@@ -60,6 +60,28 @@ namespace ELearningApp
             services.AddSingleton<CategoryService>(); //adding Singleton CategoryService
 
             services.AddHttpClient<CourseHttp>();
+
+            services.AddAuthentication(options =>
+            {
+                options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            })
+          .AddCookie(
+              options =>
+              {
+                  
+                  options.LoginPath = "/Account/Login/";
+                  options.LogoutPath = "/Account/Logout/";
+                  options.AccessDeniedPath = "/Account/NoAccess/";
+                  options.ExpireTimeSpan = TimeSpan.FromDays(7);
+                  options.SlidingExpiration = true;
+              }
+              );
+            var cookiePolicyOptions = new CookiePolicyOptions
+            {
+                MinimumSameSitePolicy = SameSiteMode.Strict,
+            };
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

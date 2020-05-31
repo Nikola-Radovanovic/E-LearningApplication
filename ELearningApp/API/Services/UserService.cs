@@ -19,9 +19,30 @@ namespace ELearningApp.API.Services
 
             _users = database.GetCollection<User>(settings.UsersCollectionName);
         }
+        //Authenticate
+        //public User Authenticate(string username, string password)
+        //{
+        //    if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+        //        return null;
 
-        // GET /api/users
-        public List<User> Get() =>
+        //    var user = _users.Find(x => x.Email == username).SingleOrDefault();
+        //    var pas = _users.Find(x => x.Password == password).SingleOrDefault();
+
+        //    // check if username exists
+        //    if (user == null)
+        //        return null;
+
+        //    // check if password is correct
+        //    if (pas == null)
+        //        return null;
+
+        //    // authentication successful
+        //    return user;
+        //} 
+
+
+         // GET /api/users
+         public List<User> Get() =>
             _users.Find(u => true).ToList();
 
         // GET /api/users/{id}
