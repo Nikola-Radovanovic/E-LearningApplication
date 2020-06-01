@@ -78,7 +78,11 @@ using ELearningApp.Models;
         ");
             EndContext();
             BeginContext(615, 57, false);
+<<<<<<< HEAD
             __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "3abbd3b1251946f5914b79ace5c27cf4", async() => {
+=======
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "aba716c111834ba8b194a3701a72f22f", async() => {
+>>>>>>> d28f50f280320161e505f0a8a2e6a73cbcb6d383
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();

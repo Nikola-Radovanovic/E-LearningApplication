@@ -34,6 +34,7 @@ else
                 <tbody>
                     @foreach (var course in Model)
                     {
+<<<<<<< HEAD
                     <tr>
                         <td>@Html.ActionLink(course.Name, "GetCourse", "Courses", new { id = course.Id })</td>
                         <td>@course.Link</td>
@@ -42,6 +43,13 @@ else
 
                         @if (User.IsInRole("Admin"))
                         {
+=======
+                        <tr>
+                            <td>@Html.ActionLink(course.Name, "GetCourse", "Courses", new { id = course.Id })</td>
+                            <td>@course.Link</td>
+                            <td>@course.Categories.FirstOrDefault()</td>
+                            <td>@course.Level.FirstOrDefault()</td>
+>>>>>>> d28f50f280320161e505f0a8a2e6a73cbcb6d383
                             <td class="col-lg-2 text-center">
                                 <a class="btn btn-primary" asp-action="UpdateCourse" asp-route-id="@course.Id">Update</a>
                                 <a class="btn btn-danger" asp-action="DeleteCourse" asp-route-id="@course.Id">Delete</a>

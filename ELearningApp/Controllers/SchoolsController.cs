@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using ELearningApp.API.Services;
 using Microsoft.AspNetCore.Authorization;
+using ELearningApp.ViewModels;
 
 namespace ELearningApp.Controllers
 {
@@ -16,9 +17,11 @@ namespace ELearningApp.Controllers
     public class SchoolsController : Controller
     {
         private readonly SchoolService _schoolService;
-        public SchoolsController(SchoolService schoolService)
+        private readonly CourseService _courseService;
+        public SchoolsController(SchoolService schoolService, CourseService courseService)
         {
             _schoolService = schoolService;
+            _courseService = courseService;
         }
 
         //All Schools
@@ -51,21 +54,17 @@ namespace ELearningApp.Controllers
         [Authorize]
         public ViewResult GetSchool() => View();
         [HttpGet]
-        public async Task<IActionResult> GetSchool(string id)
+        public IActionResult GetSchool(string id, Course course)
         {
             try
-            {
-            School school = new School();
-
-            using (var httpClient = new HttpClient())
-            {
-                using (var response = await httpClient.GetAsync("https://localhost:44345/api/Schools/" + id))
+            {  
+                SchoolCourseViewModel viewModel = new SchoolCourseViewModel
                 {
-                    string apiResponse = await response.Content.ReadAsStringAsync();
-                    school = JsonConvert.DeserializeObject<School>(apiResponse);
-                }
-            }
-            return View(school);
+                    School = _schoolService.Get(id),
+                    Course = _courseService.Get().ToList()
+                }; 
+
+                return View(viewModel);
             }
             catch
             {

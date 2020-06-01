@@ -95,6 +95,7 @@ using ELearningApp.Models;
             BeginContext(381, 12, true);
             WriteLiteral("            ");
             EndContext();
+<<<<<<< HEAD
             BeginContext(393, 912, false);
             __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bdd9914d01f14d079fdc1618abeafaad", async() => {
                 BeginContext(432, 18, true);
@@ -102,6 +103,15 @@ using ELearningApp.Models;
                 EndContext();
                 BeginContext(450, 66, false);
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("div", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "591f9718f9b54b7c8927f05d76f25e93", async() => {
+=======
+            BeginContext(387, 917, false);
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3ecfef5e47fa4a85a5603a927bb3d0a6", async() => {
+                BeginContext(455, 14, true);
+                WriteLiteral("\r\n            ");
+                EndContext();
+                BeginContext(469, 66, false);
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("div", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dbb778115a374a669b8a228fbcf22c6f", async() => {
+>>>>>>> d28f50f280320161e505f0a8a2e6a73cbcb6d383
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationSummaryTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.ValidationSummaryTagHelper>();
@@ -124,9 +134,20 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationSummaryTagHelper.ValidationSumma
                 BeginContext(516, 64, true);
                 WriteLiteral("\r\n                <div class=\"form-group\">\r\n                    ");
                 EndContext();
+<<<<<<< HEAD
                 BeginContext(581, 27, false);
 #line 20 "C:\Users\Milica\Desktop\E-LearningApplication\ELearningApp\Views\Account\Login.cshtml"
                Write(Html.LabelFor(c => c.Email));
+=======
+                BeginContext(591, 53, false);
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f7a62143387c43fa85e389fb62a54479", async() => {
+                }
+                );
+                __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.LabelTagHelper>();
+                __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper);
+#line 19 "C:\Users\Johny\Desktop\Sol_ELearningApp\ELearningApp\Views\Account\Login.cshtml"
+__Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvider.CreateModelExpression(ViewData, __model => __model.Email);
+>>>>>>> d28f50f280320161e505f0a8a2e6a73cbcb6d383
 
 #line default
 #line hidden
@@ -134,9 +155,20 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationSummaryTagHelper.ValidationSumma
                 BeginContext(608, 22, true);
                 WriteLiteral("\r\n                    ");
                 EndContext();
+<<<<<<< HEAD
                 BeginContext(631, 62, false);
 #line 21 "C:\Users\Milica\Desktop\E-LearningApplication\ELearningApp\Views\Account\Login.cshtml"
                Write(Html.TextBoxFor(c => c.Email, new { @class = "form-control" }));
+=======
+                BeginContext(662, 46, false);
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "49e80bed0fa1441eaa415b5a25ef68c4", async() => {
+                }
+                );
+                __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
+                __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper);
+#line 20 "C:\Users\Johny\Desktop\Sol_ELearningApp\ELearningApp\Views\Account\Login.cshtml"
+__Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvider.CreateModelExpression(ViewData, __model => __model.Email);
+>>>>>>> d28f50f280320161e505f0a8a2e6a73cbcb6d383
 
 #line default
 #line hidden
@@ -144,9 +176,20 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationSummaryTagHelper.ValidationSumma
                 BeginContext(693, 22, true);
                 WriteLiteral("\r\n                    ");
                 EndContext();
+<<<<<<< HEAD
                 BeginContext(716, 39, false);
 #line 22 "C:\Users\Milica\Desktop\E-LearningApplication\ELearningApp\Views\Account\Login.cshtml"
                Write(Html.ValidationMessageFor(c => c.Email));
+=======
+                BeginContext(726, 60, false);
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fc84ee27edb4457682e4c457347e8075", async() => {
+                }
+                );
+                __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationMessageTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.ValidationMessageTagHelper>();
+                __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_ValidationMessageTagHelper);
+#line 21 "C:\Users\Johny\Desktop\Sol_ELearningApp\ELearningApp\Views\Account\Login.cshtml"
+__Microsoft_AspNetCore_Mvc_TagHelpers_ValidationMessageTagHelper.For = ModelExpressionProvider.CreateModelExpression(ViewData, __model => __model.Email);
+>>>>>>> d28f50f280320161e505f0a8a2e6a73cbcb6d383
 
 #line default
 #line hidden
@@ -154,9 +197,20 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationSummaryTagHelper.ValidationSumma
                 BeginContext(755, 88, true);
                 WriteLiteral("\r\n                </div>\r\n                <div class=\"form-group\">\r\n                    ");
                 EndContext();
+<<<<<<< HEAD
                 BeginContext(844, 30, false);
 #line 25 "C:\Users\Milica\Desktop\E-LearningApplication\ELearningApp\Views\Account\Login.cshtml"
                Write(Html.LabelFor(c => c.Password));
+=======
+                BeginContext(862, 56, false);
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c6057edc3c204b6e880e52bda3bc0faf", async() => {
+                }
+                );
+                __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.LabelTagHelper>();
+                __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper);
+#line 24 "C:\Users\Johny\Desktop\Sol_ELearningApp\ELearningApp\Views\Account\Login.cshtml"
+__Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvider.CreateModelExpression(ViewData, __model => __model.Password);
+>>>>>>> d28f50f280320161e505f0a8a2e6a73cbcb6d383
 
 #line default
 #line hidden
@@ -164,9 +218,20 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationSummaryTagHelper.ValidationSumma
                 BeginContext(874, 22, true);
                 WriteLiteral("\r\n                    ");
                 EndContext();
+<<<<<<< HEAD
                 BeginContext(897, 66, false);
 #line 26 "C:\Users\Milica\Desktop\E-LearningApplication\ELearningApp\Views\Account\Login.cshtml"
                Write(Html.PasswordFor(c => c.Password, new { @class = "form-control" }));
+=======
+                BeginContext(936, 49, false);
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "ef5d5d852762491db6735f0dcbb3fc70", async() => {
+                }
+                );
+                __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
+                __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper);
+#line 25 "C:\Users\Johny\Desktop\Sol_ELearningApp\ELearningApp\Views\Account\Login.cshtml"
+__Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvider.CreateModelExpression(ViewData, __model => __model.Password);
+>>>>>>> d28f50f280320161e505f0a8a2e6a73cbcb6d383
 
 #line default
 #line hidden
@@ -174,9 +239,20 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationSummaryTagHelper.ValidationSumma
                 BeginContext(963, 22, true);
                 WriteLiteral("\r\n                    ");
                 EndContext();
+<<<<<<< HEAD
                 BeginContext(986, 42, false);
 #line 27 "C:\Users\Milica\Desktop\E-LearningApplication\ELearningApp\Views\Account\Login.cshtml"
                Write(Html.ValidationMessageFor(c => c.Password));
+=======
+                BeginContext(1003, 63, false);
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "82eeed0149f24ca9b7ac289e5b40812e", async() => {
+                }
+                );
+                __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationMessageTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.ValidationMessageTagHelper>();
+                __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_ValidationMessageTagHelper);
+#line 26 "C:\Users\Johny\Desktop\Sol_ELearningApp\ELearningApp\Views\Account\Login.cshtml"
+__Microsoft_AspNetCore_Mvc_TagHelpers_ValidationMessageTagHelper.For = ModelExpressionProvider.CreateModelExpression(ViewData, __model => __model.Password);
+>>>>>>> d28f50f280320161e505f0a8a2e6a73cbcb6d383
 
 #line default
 #line hidden
@@ -194,10 +270,17 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationSummaryTagHelper.ValidationSumma
                 BeginContext(1116, 103, true);
                 WriteLiteral("\r\n                <input type=\"submit\" value=\"Prijavi se\" class=\"btn btn-primary \" />\r\n                ");
                 EndContext();
+<<<<<<< HEAD
                 BeginContext(1219, 65, false);
                 __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac656616ca5d48ff8ab7619451c7bd61", async() => {
                     BeginContext(1268, 12, true);
                     WriteLiteral("Registruj se");
+=======
+                BeginContext(1227, 60, false);
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "930156ea8c334535a0b516ff0c0aa06e", async() => {
+                    BeginContext(1277, 6, true);
+                    WriteLiteral("SignUp");
+>>>>>>> d28f50f280320161e505f0a8a2e6a73cbcb6d383
                     EndContext();
                 }
                 );

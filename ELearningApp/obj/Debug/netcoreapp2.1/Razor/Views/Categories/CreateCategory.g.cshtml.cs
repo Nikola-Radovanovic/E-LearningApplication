@@ -120,7 +120,11 @@ using ELearningApp.Models;
             WriteLiteral("            ");
             EndContext();
             BeginContext(645, 168, false);
+<<<<<<< HEAD
             __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "4f368a87c6e84ab5a034e04c2f613db2", async() => {
+=======
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "0f86a295ab484d31bd84a5925e57a0b0", async() => {
+>>>>>>> d28f50f280320161e505f0a8a2e6a73cbcb6d383
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_FormActionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.FormActionTagHelper>();

@@ -19,19 +19,6 @@
                 @Html.TextBoxFor(c => c.Course.Link, new { @class = "form-control" })
                 @Html.ValidationMessageFor(c => c.Course.Link)
             </div>
-            @*<div class="form-group">
-                @Html.LabelFor(c => c.Course.Categories)
-                @Html.DropDownListFor(c => c.Course.Categories,
-                                      new SelectList(Model.Course.Categories, "Id", "Name"),
-                                      "Izaberite kategoriju",
-                                      new { @class = "form-control" })
-                @Html.ValidationMessageFor(c => c.Course.Categories)
-            </div>*@
-            <div class="form-group">
-                @Html.LabelFor(c => c.Course.Categories)
-                @Html.TextBoxFor(c => c.Course.Categories, new { @class = "form-control" })
-                @Html.ValidationMessageFor(c => c.Course.Categories)
-            </div>
             <div class="form-group">
                 @Html.LabelFor(c => c.Course.Level)
                 @Html.DropDownListFor(c => c.Course.Level,
@@ -39,6 +26,22 @@
                                       "--Izaberite nivo kursa--",
                                       new { @class = "form-control" })
                 @Html.ValidationMessageFor(c => c.Course.Level)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(c => c.Course.Categories)
+                @Html.DropDownListFor(c => c.Course.Categories,
+                                      new SelectList(Enum.GetValues(typeof(Categories))),
+                                      "--Izaberite kategoriju kursa--",
+                                      new { @class = "form-control" })
+                @Html.ValidationMessageFor(c => c.Course.Categories)
+            </div> 
+            <div class="form-group">
+                @Html.LabelFor(c => c.Course.School)
+                @Html.DropDownListFor(c => c.Course.School,
+                                      new SelectList(Enum.GetValues(typeof(Schools))),
+                                      "--Izaberite školu--",
+                                      new { @class = "form-control" })
+                @Html.ValidationMessageFor(c => c.Course.School)
             </div>
             <div class="form-group">
                 @Html.LabelFor(c => c.Course.Description)

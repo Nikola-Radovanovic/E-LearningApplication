@@ -1,4 +1,4 @@
-﻿@model ELearningApp.Models.School
+﻿@model ELearningApp.ViewModels.SchoolCourseViewModel
 @{
     ViewData["Title"] = "CreateSchool";
     Layout = "~/Views/Shared/_DataTablesLayoutPartial.cshtml";
@@ -11,11 +11,11 @@
         @using (Html.BeginForm("CreateSchool", "Schools"))
         {
             <div class="form-group">
-                @Html.LabelFor(s => s.Name)
-                @Html.TextBoxFor(s => s.Name, new { @class = "form-control" })
-                @Html.ValidationMessageFor(s => s.Name)
+                @Html.LabelFor(s => s.School.Name)
+                @Html.TextBoxFor(s => s.School.Name, new { @class = "form-control" })
+                @Html.ValidationMessageFor(s => s.School.Name)
             </div>
-            @Html.HiddenFor(s => s.Id)
+            @Html.HiddenFor(s => s.School.Id)
             @Html.AntiForgeryToken()
             <input type="submit" asp-route-returnUrl="@Url.Action("AllSchools", "Schools", new { area = "" })" class="btn btn-success" formmethod="post" value="Create" />
         }
