@@ -8,6 +8,7 @@ using ELearningApp.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authentication;
+using System.Text.RegularExpressions;
 
 namespace ELearningApp.Controllers
 {
@@ -54,13 +55,13 @@ namespace ELearningApp.Controllers
         {
             try
             {
+
                 if (ModelState.IsValid)
                 {
                     _userService.Create(user);
                     return RedirectToAction("Login", "Account");
                     
                 }
-                
                 return View(user);
             }
             catch

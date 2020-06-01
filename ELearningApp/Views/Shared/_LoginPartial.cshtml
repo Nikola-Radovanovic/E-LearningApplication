@@ -3,6 +3,7 @@
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
 
+
 @if (SignInManager.IsSignedIn(User))
 {
     <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })" method="post" id="logoutForm" class="navbar-right">
@@ -18,10 +19,10 @@
 }
 else
 {
-    <ul class="nav navbar-nav navbar-right">
+    <ul class="nav navbar-nav navbar-right" >
         @if (User.Identity.IsAuthenticated)
         {
-            <li><a asp-area="" asp-controller="Profile" asp-action="Index">Profil</a></li>
+            <li><a asp-area="" asp-controller="Profile" asp-action="Index"> @UserManager.GetUserName(User)</a></li>
         }
         @if (!User.Identity.IsAuthenticated)
         {

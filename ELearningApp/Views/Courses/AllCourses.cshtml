@@ -14,7 +14,7 @@
     </div>
 }
 else
-{              
+{
     <h2>Kursevi</h2>
     <div class="row">
         <div class="col-lg-11">
@@ -25,29 +25,39 @@ else
                         <th>Link kursa</th>
                         <th>Kategorija</th>
                         <th>Nivo kursa</th>
-                        <th></th>
-                    </tr>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <th></th>
+                        }
+                        </tr>
                 </thead>
                 <tbody>
                     @foreach (var course in Model)
                     {
-                        <tr>
-                            <td>@Html.ActionLink(course.Name, "GetCourse", "Courses", new { id = course.Id })</td>
-                            <td>@course.Link</td>
-                            <td>@course.Categories.FirstOrDefault()</td>
-                            <td>@course.Level</td>
+                    <tr>
+                        <td>@Html.ActionLink(course.Name, "GetCourse", "Courses", new { id = course.Id })</td>
+                        <td>@course.Link</td>
+                        <td>@course.Categories.FirstOrDefault()</td>
+                        <td>@course.Level</td>
+
+                        @if (User.IsInRole("Admin"))
+                        {
                             <td class="col-lg-2 text-center">
                                 <a class="btn btn-primary" asp-action="UpdateCourse" asp-route-id="@course.Id">Update</a>
                                 <a class="btn btn-danger" asp-action="DeleteCourse" asp-route-id="@course.Id">Delete</a>
                             </td>
+                        }
                         </tr>
                     }
                 </tbody>
             </table>
         </div>
         <div class="col-lg-1">
-            <a asp-action="CreateCourse" class="btn btn-success">Create</a>
-        </div>
+            @if (User.IsInRole("Admin"))
+            {
+                <a asp-action="CreateCourse" class="btn btn-success">Create</a>
+            }
+            </div>
     </div>
 }
 

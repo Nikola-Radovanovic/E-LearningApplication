@@ -18,6 +18,6 @@ namespace ELearningApp.Models
         [Display(Name = "Naziv škole")]
         public string Name { get; set; }
 
-        //public string [] Courses { get; set; }
+        public string  Courses { get; set; }
     }
 }

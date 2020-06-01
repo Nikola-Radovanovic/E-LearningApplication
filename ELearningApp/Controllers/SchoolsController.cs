@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace ELearningApp.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin, User")]
     public class SchoolsController : Controller
     {
         private readonly SchoolService _schoolService;
@@ -22,7 +22,7 @@ namespace ELearningApp.Controllers
         }
 
         //All Schools
-        
+        [Authorize]
         [HttpGet]
         public async Task<IActionResult> AllSchools()
         {
@@ -48,7 +48,7 @@ namespace ELearningApp.Controllers
         }
 
         //GET School
-        
+        [Authorize]
         public ViewResult GetSchool() => View();
         [HttpGet]
         public async Task<IActionResult> GetSchool(string id)
@@ -73,7 +73,7 @@ namespace ELearningApp.Controllers
             }
 
         }
-
+        [Authorize(Roles ="Admin")]
         // CREATE School
         public ViewResult CreateSchool() => View();
         [HttpPost]
@@ -105,7 +105,7 @@ namespace ELearningApp.Controllers
                 return NotFound();
     }
 }
-
+        [Authorize(Roles = "Admin")]
         //UPDATE School
         //GET
         public async Task<IActionResult> UpdateSchool(string id)
@@ -146,6 +146,7 @@ namespace ELearningApp.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin")]
         //DELETE School
         //GET
         public IActionResult DeleteSchool(string id)

@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace ELearningApp.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin, User")]
     public class CoursesController : Controller
     {
         private readonly CourseService _courseService;
@@ -57,6 +57,7 @@ namespace ELearningApp.Controllers
             return View(course);
         }
 
+        [Authorize(Roles = "Admin")]
         // CREATE Course
         public ViewResult CreateCourse() => View();
         [HttpPost]
@@ -83,7 +84,7 @@ namespace ELearningApp.Controllers
             return RedirectToAction("AllCourses", "Courses", returnedCourse);
         }
 
-
+        [Authorize(Roles = "Admin")]
         //UPDATE Course
         public async Task<IActionResult> UpdateCourse(string id)
         {
@@ -177,7 +178,7 @@ namespace ELearningApp.Controllers
         //    //return RedirectToAction("AllCourses", "Courses");
         //}
 
-
+        [Authorize(Roles = "Admin")]
         public IActionResult DeleteCourse(string id)
         {
             var course = _courseService.Get(id);

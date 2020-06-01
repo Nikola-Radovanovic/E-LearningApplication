@@ -17,44 +17,82 @@ namespace ELearningApp.Controllers
         {
             return View();
         }
+
         [HttpPost]
-        public async Task<IActionResult> Login(User model, string ReturnUrl)
+        public IActionResult Login([Bind]User user)
         {
-            if (ModelState.IsValid)
+            
+            if (!string.IsNullOrEmpty(user.Email) && string.IsNullOrEmpty(user.Password))
             {
-                var isValid = true; // TODO Validate the username and the password with your own logic
-                if (!isValid)
-                {
-                    ModelState.AddModelError("", "Username or password is invalid");
-                    return View();
-                }
+                return RedirectToAction("NoAccess");
             }
 
-            if (LoginUser(model.Email, model.Password))
+            
+            ClaimsIdentity identity = null;
+            bool isAuthenticated = false;
+
+            if (user.Email == "admin@admin.com" && user.Password == "Admin123" )
             {
-                var claims = new List<Claim>
-                {
-                    new Claim(ClaimTypes.Name, model.Email)
-                };
-                //var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
 
-                var userIdentity = new ClaimsIdentity(claims, "login");
-                ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
-                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+                //Kreiramo identitet za Rolu "User"
+                identity = new ClaimsIdentity(new[] {
+                    new Claim(ClaimTypes.Name, user.Email),
+                    new Claim(ClaimTypes.Role, "Admin")
+                }, CookieAuthenticationDefaults.AuthenticationScheme);
 
-                return RedirectToAction("Index", "Profile");
-            }
-
-            if (!string.IsNullOrEmpty(ReturnUrl)) // Povratak na trazenu stranu posle autentikacije
-            {
-                return Redirect(ReturnUrl);
+                isAuthenticated = true;
             }
             else
             {
-                return View();
+                //Kreiramo identitet za Rolu "User" 
+               identity = new ClaimsIdentity(new[] {
+                    new Claim(ClaimTypes.Name, user.Email),
+                    new Claim(ClaimTypes.Role, "User")
+                }, CookieAuthenticationDefaults.AuthenticationScheme);
+
+                isAuthenticated = true;
             }
-            
+            if (isAuthenticated)
+            {
+                ClaimsPrincipal principal = new ClaimsPrincipal(identity);
+
+                var login = HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+
+                return RedirectToAction("Index", "Profile");
+            }
+            return View(); 
         }
+    
+
+
+
+
+//[HttpPost]
+//public async Task<IActionResult> Login(User user)
+//{
+//    if (ModelState.IsValid)
+//    {
+//        var isValid = true; // TODO Validate the username and the password with your own logic
+//        if (!isValid)
+//        {
+//            ModelState.AddModelError("", "Username or password is invalid");
+//            return View();
+//        }
+
+//    }
+//}
+//if (LoginUser(user.Email, user.Password))
+//{
+//    var claims = new List<Claim>
+//    {
+//        new Claim(ClaimTypes.Name, user.Email)
+//    };
+//    //var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+//    var userIdentity = new ClaimsIdentity(claims, "login");
+//    ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
+//    await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+//    return RedirectToAction("Index", "Profile");
+//return RedirectToAction("Index", "Home");               //}
 
         private bool LoginUser(string username, string password)
         {
@@ -66,8 +104,8 @@ namespace ELearningApp.Controllers
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
 
-            return RedirectToAction("Index", "Home");
-            
+            return RedirectToAction("Login");
+
         }
         [HttpGet]
         public IActionResult NoAccess()

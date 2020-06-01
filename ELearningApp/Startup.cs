@@ -17,6 +17,8 @@ using Microsoft.Extensions.Options;
 using ELearningApp.API.Services;
 using ELearningApp.HttpClients;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
 
 namespace ELearningApp
 {
@@ -67,6 +69,7 @@ namespace ELearningApp
                 options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
                 options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
             })
+            
           .AddCookie(
               options =>
               {
@@ -75,13 +78,12 @@ namespace ELearningApp
                   options.LogoutPath = "/Account/Logout/";
                   options.AccessDeniedPath = "/Account/NoAccess/";
                   options.ExpireTimeSpan = TimeSpan.FromDays(7);
-                  options.SlidingExpiration = true;
+                  //options.SlidingExpiration = true;
               }
               );
-            var cookiePolicyOptions = new CookiePolicyOptions
-            {
-                MinimumSameSitePolicy = SameSiteMode.Strict,
-            };
+           
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -103,6 +105,7 @@ namespace ELearningApp
             app.UseCookiePolicy();
             app.UseStatusCodePages();
             app.UseAuthentication();
+            
           
             app.UseMvc();
             app.UseMvc(routes =>
